@@ -15,11 +15,11 @@ If a negative number or zero is specified, return an empty string. If any invali
 
 For example:
 
-f("foo", 3) // "foofoofoo"
-f("fo", 3) // "fofofo"
-f("foo", -1) // undefined
+f(["foo", 3]) // "foofoofoo"
+f(["fo", 3]) // "fofofo"
+f(["foo", -1]) // undefined
 */
-function f(str, n) {
+function f(arr) {
     
 }
 
