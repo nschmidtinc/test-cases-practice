@@ -4,11 +4,20 @@ var assert = require('assert');
 // we need 6 test cases. 
 let inputs = [
   ["add", 10, 20],
-  ["chair", 20, 10]
+  ["chair", 20, 10],
+  ["sub", 33, -12],
+  ["mult", 6,12],
+  ["add", 9,5],
+  [123, 43, 5]
 ]
 
 let outputs = [
-  30
+  30,
+  undefined,
+  45,
+  72,
+  14,
+  undefined
 ]
 
 /*
@@ -22,13 +31,29 @@ f("spoof", 10, 10); // undefined
 
 */
 function f(operation, firstArgument, secondArgument) {
+  //console.log(operation); 
+  if (isNaN(firstArgument) || isNaN(secondArgument)){
+    //console.log(operation);
+    return undefined;
     
-}
+   } else if (operation == "add"){
+    return firstArgument + secondArgument;
+   } 
+    else if (operation == "sub"){
+    return firstArgument - secondArgument;
+    }
+     else if (operation == "mult") {
+      return firstArgument * secondArgument;
+    } 
+    
+    }
+  
 
 function runTest(i) {
-    if(i > inputs.length) throw new Error("You do not have enough test cases");
+    if (i > inputs.length) throw new Error("You do not have enough test cases");
     var expected = outputs[i];
-    var actual = f(inputs[i]);
+    //console.log("hereee",actual);
+    var actual = f(...inputs[i]);
     assert.deepEqual(actual, expected);
 }
 

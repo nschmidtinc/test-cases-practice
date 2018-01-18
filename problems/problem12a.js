@@ -24,6 +24,7 @@ uniqueElements([1,2,3], [1,2,3]); // []
 uniqueElements(2,3); // undefined, not arrays
 */
 var newArr =[];
+function member () {}
 
 function f(arr1) {
     
@@ -36,7 +37,7 @@ function f(arr1) {
             var array2Element = arr2[j];
             if (array1Element == array2Element) inArray2 = true;
         }
-        if (!inArray2 {
+        if (!inArray2)  {return
             ret.push(arr1[i]);
         
         }

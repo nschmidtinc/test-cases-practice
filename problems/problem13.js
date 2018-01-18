@@ -1,11 +1,20 @@
 var assert = require('assert');
 
 // we need 5 test cases. 
-let inputs = [
+let inputs = ["racecar",
+             "oogoo",
+             "zangazanga",
+             "boottoob",
+             "oke2doke343"
   
 ]
 
 let outputs = [
+    true,
+    true,
+    false,
+    true,
+    false
   
 ]
 
@@ -16,15 +25,22 @@ RADAR -> Yes
 JAVASCRIPT -> No
 */
 function f(str) {
+    var cleanstr = str.replace(/[^a-z/]/ig, "").toLowerCase();
     
+
+    var invertedstr = cleanstr.split("").reverse().join("");
+    
+    return cleanstr === invertedstr;
+        
 }
 
 function runTest(i) {
-    if(i > inputs.length) throw new Error("You do not have enough test cases");
+    
     var expected = outputs[i];
     var actual = f(inputs[i]);
-    assert.deepEqual(actual, expected);
+    assert.deepEqual(expected, actual);
 }
+
 
 runTest(0);
 runTest(1);
